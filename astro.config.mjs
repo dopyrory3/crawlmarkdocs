@@ -25,10 +25,10 @@ export default defineConfig({
         {
           label: 'Checks',
           items: [
-            { label: 'Layer 1 — Crawl Access', link: '/checks/layer-1/' },
-            { label: 'Layer 2 — Renderability', link: '/checks/layer-2/' },
-            { label: 'Layer 3 — Structured Data', link: '/checks/layer-3/' },
-            { label: 'Layer 4 — Advanced', link: '/checks/layer-4/' },
+            { label: 'Layer 1 - Crawl Access', link: '/checks/layer-1/' },
+            { label: 'Layer 2 - Renderability', link: '/checks/layer-2/' },
+            { label: 'Layer 3 - Structured Data', link: '/checks/layer-3/' },
+            { label: 'Layer 4 - Advanced', link: '/checks/layer-4/' },
           ],
         },
         {

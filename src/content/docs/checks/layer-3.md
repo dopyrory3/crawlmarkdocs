@@ -1,15 +1,15 @@
 ---
-title: Layer 3 — Structured Data
+title: Layer 3 - Structured Data
 description: Checks for machine-readable metadata that AI systems use for entity understanding.
 ---
 
 **Weight: 35% of open score**
 
-Layer 3 has the highest weight because structured data is the primary signal AI systems use for entity understanding — it converts prose into machine-readable facts.
+Layer 3 has the highest weight because structured data is the primary signal AI systems use for entity understanding - it converts prose into machine-readable facts.
 
 ---
 
-## `json-ld-present` — JSON-LD structured data present
+## `json-ld-present` - JSON-LD structured data present
 
 **Possible statuses:** `pass` / `fail`
 
@@ -19,17 +19,17 @@ Checks for one or more `<script type="application/ld+json">` blocks.
 
 ---
 
-## `schema-type` — Schema @type detected
+## `schema-type` - Schema @type detected
 
 **Possible statuses:** `pass` / `warn`
 
 Attempts to parse the `@type` field from each JSON-LD block. Only emitted when JSON-LD is present.
 
-**Why it matters:** The `@type` tells AI systems what kind of entity the page describes — `Article`, `Product`, `Organization`, `FAQPage`, etc. Without a type, the structured data provides less useful context.
+**Why it matters:** The `@type` tells AI systems what kind of entity the page describes - `Article`, `Product`, `Organization`, `FAQPage`, etc. Without a type, the structured data provides less useful context.
 
 ---
 
-## `open-graph` — Open Graph tags complete
+## `open-graph` - Open Graph tags complete
 
 **Possible statuses:** `pass` / `warn` / `fail`
 
@@ -45,7 +45,7 @@ Checks for all three core OG tags: `og:title`, `og:description`, `og:image`.
 
 ---
 
-## `meta-description` — Meta description present
+## `meta-description` - Meta description present
 
 **Possible statuses:** `pass` / `fail`
 
@@ -55,7 +55,7 @@ Checks for `<meta name="description">`.
 
 ---
 
-## `canonical` — Canonical tag present
+## `canonical` - Canonical tag present
 
 **Possible statuses:** `pass` / `warn`
 
@@ -65,7 +65,7 @@ Checks for `<link rel="canonical">`.
 
 ---
 
-## `twitter-card` — Twitter/social card meta tags
+## `twitter-card` - Twitter/social card meta tags
 
 **Possible statuses:** `pass` / `warn`
 
@@ -75,7 +75,7 @@ Checks for `<meta name="twitter:card">`.
 
 ---
 
-## `rss-feed` — RSS/Atom feed present
+## `rss-feed` - RSS/Atom feed present
 
 **Possible statuses:** `pass` / `info`
 

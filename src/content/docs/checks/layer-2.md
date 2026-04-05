@@ -1,5 +1,5 @@
 ---
-title: Layer 2 — Renderability
+title: Layer 2 - Renderability
 description: Checks whether AI agents can extract meaningful content from the raw HTML without executing JavaScript.
 ---
 
@@ -9,7 +9,7 @@ Layer 2 checks whether AI agents can extract meaningful content from the raw HTM
 
 ---
 
-## `page-returns-content` — Page returns content to plain HTTP GET
+## `page-returns-content` - Page returns content to plain HTTP GET
 
 **Possible statuses:** `pass` / `warn` / `fail`
 
@@ -19,7 +19,7 @@ Fetches the root URL simulating a browser navigation (full `Accept`, `Sec-Fetch-
 
 ---
 
-## `heading-hierarchy` — Heading hierarchy present in raw HTML
+## `heading-hierarchy` - Heading hierarchy present in raw HTML
 
 **Possible statuses:** `pass` / `warn`
 
@@ -29,7 +29,7 @@ Counts `<h1>` and `<h2>` elements in the raw HTML.
 
 ---
 
-## `image-alt-coverage` — Image alt text coverage
+## `image-alt-coverage` - Image alt text coverage
 
 **Possible statuses:** `pass` / `warn` / `fail` / `info`
 
@@ -45,7 +45,7 @@ Calculates the percentage of `<img>` elements that have an `alt` attribute. Retu
 
 ---
 
-## `content-threshold` — Body content above minimum threshold
+## `content-threshold` - Body content above minimum threshold
 
 **Possible statuses:** `pass` / `warn` / `fail`
 

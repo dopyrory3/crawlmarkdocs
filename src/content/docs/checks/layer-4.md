@@ -1,15 +1,15 @@
 ---
-title: Layer 4 — Advanced
-description: Next-generation AI integration signals. Absence is info, not failure — these checks reward early adopters.
+title: Layer 4 - Advanced
+description: Next-generation AI integration signals. Absence is info, not failure - these checks reward early adopters.
 ---
 
 **Weight: 15% of open score**
 
-Layer 4 checks for next-generation AI integration signals. Most sites will not have these — absence is `info`, not a failure. These checks reward early adopters.
+Layer 4 checks for next-generation AI integration signals. Most sites will not have these - absence is `info`, not a failure. These checks reward early adopters.
 
 ---
 
-## `mcp-endpoint` — MCP endpoint detectable
+## `mcp-endpoint` - MCP endpoint detectable
 
 **Possible statuses:** `pass` / `info`
 
@@ -23,7 +23,7 @@ Probes the following paths for a valid JSON response:
 
 ---
 
-## `well-known-ai` — .well-known AI plugin manifest
+## `well-known-ai` - .well-known AI plugin manifest
 
 **Possible statuses:** `pass` / `info`
 
@@ -36,7 +36,7 @@ Probes:
 
 ---
 
-## `llms-txt-mcp` — MCP server endpoint documented in llms.txt
+## `llms-txt-mcp` - MCP server endpoint documented in llms.txt
 
 **Possible statuses:** `pass` / `info`
 
@@ -44,7 +44,7 @@ Parses llms.txt for links pointing to an MCP endpoint. Matches on URL paths (`/m
 
 ---
 
-## `llms-txt-nlweb` — NLWeb endpoint documented in llms.txt
+## `llms-txt-nlweb` - NLWeb endpoint documented in llms.txt
 
 **Possible statuses:** `pass` / `info`
 
@@ -52,7 +52,7 @@ Parses llms.txt for links to a [NLWeb](https://github.com/microsoft/NLWeb) conve
 
 ---
 
-## `llms-txt-a2a` — A2A agent endpoint documented in llms.txt
+## `llms-txt-a2a` - A2A agent endpoint documented in llms.txt
 
 **Possible statuses:** `pass` / `info`
 
@@ -60,7 +60,7 @@ Parses llms.txt for Agent-to-Agent (A2A) protocol endpoints. Matches URL paths (
 
 ---
 
-## `llms-txt-chat-api` — Chat / completions API documented in llms.txt
+## `llms-txt-chat-api` - Chat / completions API documented in llms.txt
 
 **Possible statuses:** `pass` / `info`
 

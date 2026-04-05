@@ -1,5 +1,5 @@
 ---
-title: Layer 1 — Crawl Access
+title: Layer 1 - Crawl Access
 description: Checks whether AI crawlers can reach the site and whether the site has explicitly declared its stance.
 ---
 
@@ -9,19 +9,19 @@ Layer 1 checks whether AI crawlers can reach the site and whether the site has e
 
 ---
 
-## `robots-present` — robots.txt present
+## `robots-present` - robots.txt present
 
 **Possible statuses:** `pass` / `fail` / `warn`
 
-Fetches `{domain}/robots.txt` with `Accept: text/plain`. Passes if the file is present and contains recognisable directives (`User-agent`, `Disallow`, `Allow`, `Sitemap`, `Crawl-delay`). Content takes priority over `Content-Type` — some servers misconfigure the MIME type but serve valid content.
+Fetches `{domain}/robots.txt` with `Accept: text/plain`. Passes if the file is present and contains recognisable directives (`User-agent`, `Disallow`, `Allow`, `Sitemap`, `Crawl-delay`). Content takes priority over `Content-Type` - some servers misconfigure the MIME type but serve valid content.
 
 Fails if the URL returns HTTP 4xx/5xx, a network error, or an HTML page (indicating a WAF or SPA fallback intercept).
 
-**Why it matters:** robots.txt is the foundational crawl contract. Without it, AI crawlers have no explicit guidance and must make assumptions. Its absence doesn't block crawling, but its presence — or absence — signals how deliberate a site's AI stance is.
+**Why it matters:** robots.txt is the foundational crawl contract. Without it, AI crawlers have no explicit guidance and must make assumptions. Its absence doesn't block crawling, but its presence - or absence - signals how deliberate a site's AI stance is.
 
 ---
 
-## `sitemap-in-robots` — Sitemap linked from robots.txt
+## `sitemap-in-robots` - Sitemap linked from robots.txt
 
 **Possible statuses:** `pass` / `warn`
 
@@ -31,7 +31,7 @@ Checks for a `Sitemap:` directive in robots.txt.
 
 ---
 
-## `robots-{agent}` — Per-agent access
+## `robots-{agent}` - Per-agent access
 
 **Possible statuses:** `pass` (allowed) / `warn` (blocked)
 
@@ -58,17 +58,17 @@ An agent is considered blocked if it has a specific `User-agent:` block with `Di
 
 ---
 
-## `llms-txt-present` — llms.txt present
+## `llms-txt-present` - llms.txt present
 
 **Possible statuses:** `pass` / `fail`
 
 Fetches `{domain}/llms.txt` with `Accept: text/plain`. Fails if the file is missing, returns an error status, or the response body is HTML.
 
-**Why it matters:** [llms.txt](https://llmstxt.org) is an emerging standard for sites to communicate their AI stance and capabilities to LLM-based crawlers — analogous to robots.txt but purpose-built for AI agents. Its presence signals a deliberate, forward-looking approach to AI readiness.
+**Why it matters:** [llms.txt](https://llmstxt.org) is an emerging standard for sites to communicate their AI stance and capabilities to LLM-based crawlers - analogous to robots.txt but purpose-built for AI agents. Its presence signals a deliberate, forward-looking approach to AI readiness.
 
 ---
 
-## `llms-txt-format` — llms.txt valid format
+## `llms-txt-format` - llms.txt valid format
 
 **Possible statuses:** `pass` / `warn`
 
@@ -76,7 +76,7 @@ Checks that the file contains at least one H1 heading (`# Title`), which the llm
 
 ---
 
-## `llms-txt-links` — llms.txt contains content links
+## `llms-txt-links` - llms.txt contains content links
 
 **Possible statuses:** `pass` / `warn`
 
@@ -84,7 +84,7 @@ Counts markdown-style links (`[text](url)`) in the file. A file with no links do
 
 ---
 
-## `sitemap-present` — Sitemap present
+## `sitemap-present` - Sitemap present
 
 **Possible statuses:** `pass` / `fail`
 
@@ -100,7 +100,7 @@ Validates that the response contains `<urlset` or `<sitemapindex` XML structure.
 
 ---
 
-## `sitemap-lastmod` — Sitemap has lastmod dates
+## `sitemap-lastmod` - Sitemap has lastmod dates
 
 **Possible statuses:** `pass` / `warn`
 
@@ -110,7 +110,7 @@ Checks for at least one `<lastmod>` element in the sitemap XML.
 
 ---
 
-## `waf-detected` — CDN or WAF detected
+## `waf-detected` - CDN or WAF detected
 
 **Possible statuses:** `warn` (detected) / `info` (not detected)
 

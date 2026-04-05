@@ -3,7 +3,7 @@ title: Crawlmark Scanning Criteria
 description: Authoritative reference for every check Crawlmark performs, how results are scored, and why each signal matters.
 template: splash
 hero:
-  tagline: The complete reference for every check Crawlmark performs, how results are scored, and why each signal matters. Version 1.0.0 — last updated 2026-04-05.
+  tagline: The complete reference for every check Crawlmark performs, how results are scored, and why each signal matters. Version 1.0.0 - last updated 2026-04-05.
   actions:
     - text: How scoring works
       link: /scores/overview/
@@ -29,13 +29,9 @@ Every scan produces two independent scores and a stance classification.
     How effectively the site blocks AI crawlers. Calculated from agent-level robots.txt rules, llms.txt presence, and WAF detection.
   </Card>
   <Card title="Stance" icon="information">
-    OPEN / MIXED / BLOCKING / UNKNOWN — derived from the ratio of blocked to total known AI agents in robots.txt.
+    OPEN / MIXED / BLOCKING / UNKNOWN - derived from the ratio of blocked to total known AI agents in robots.txt.
   </Card>
   <Card title="Per-check statuses" icon="list-format">
     Each check returns `pass`, `warn`, `fail`, `info`, or `skip`. Only pass/warn/fail contribute to scores.
   </Card>
 </CardGrid>
-
-## Document scope
-
-This site documents the scanning criteria exactly as defined in the authoritative [`scanning-criteria.md`](https://github.com/crawlmark/crawlmark-docs/blob/main/scanning-criteria.md) source. Any change to scanning logic must update that source and increment its version number.

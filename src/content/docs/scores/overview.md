@@ -3,7 +3,7 @@ title: Scoring Overview
 description: How the open score, blocking score, and stance classification are produced from scan results.
 ---
 
-Every scan produces two scores and a stance classification. The two scores are **independent** — a site can score high on both. For example, a site may block most AI agents via a well-structured robots.txt (high blocking score) while also having excellent structured data for the agents it does allow (high open score). The UI lets the user toggle between modes.
+Every scan produces two scores and a stance classification. The two scores are **independent** - a site can score high on both. For example, a site may block most AI agents via a well-structured robots.txt (high blocking score) while also having excellent structured data for the agents it does allow (high open score). The UI lets the user toggle between modes.
 
 ## Outputs
 
@@ -19,9 +19,9 @@ Each individual check resolves to one of five statuses:
 
 | Status | Meaning | Counts toward score? |
 |---|---|---|
-| `pass` | Criterion fully met | Yes — full point |
-| `warn` | Partially met or best-practice gap | Yes — half point |
-| `fail` | Criterion not met | Yes — zero points |
+| `pass` | Criterion fully met | Yes - full point |
+| `warn` | Partially met or best-practice gap | Yes - half point |
+| `fail` | Criterion not met | Yes - zero points |
 | `info` | Informational only; absence is not a problem | No |
 | `skip` | Could not be evaluated | No |
 
