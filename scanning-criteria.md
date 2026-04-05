@@ -1,6 +1,6 @@
 # Crawlmark Scanning Criteria
 
-**Version: 1.0.0**  
+**Version: 1.1.0**  
 **Last updated: 2026-04-05**
 
 This document is the authoritative reference for every check Crawlmark performs, how results are scored, and why each signal matters. It is intended as source material for user-facing documentation. Any change to scanning logic must update this document and increment the version number.
@@ -341,19 +341,6 @@ Checks for `<link type="application/rss+xml">` or `<link type="application/atom+
 ## Layer 4 — Advanced (weight: 15%)
 
 Checks for next-generation AI integration signals. Most sites will not have these — absence is `info`, not a failure. These checks reward early adopters.
-
-### `mcp-endpoint` — MCP endpoint detectable
-
-**Status:** `pass` / `info`
-
-Probes the following paths for a valid JSON response:
-- `/mcp`
-- `/mcp.json`
-- `/.well-known/mcp.json`
-
-**Why it matters:** The [Model Context Protocol](https://modelcontextprotocol.io) (MCP) is an open standard for AI agents to interact with services via structured tool calls. An MCP endpoint makes a site directly callable by AI agents, not just passively crawlable.
-
----
 
 ### `well-known-ai` — .well-known AI plugin manifest
 

@@ -9,20 +9,6 @@ Layer 4 checks for next-generation AI integration signals. Most sites will not h
 
 ---
 
-## `mcp-endpoint` - MCP endpoint detectable
-
-**Possible statuses:** `pass` / `info`
-
-Probes the following paths for a valid JSON response:
-
-- `/mcp`
-- `/mcp.json`
-- `/.well-known/mcp.json`
-
-**Why it matters:** The [Model Context Protocol](https://modelcontextprotocol.io) (MCP) is an open standard for AI agents to interact with services via structured tool calls. An MCP endpoint makes a site directly callable by AI agents, not just passively crawlable.
-
----
-
 ## `well-known-ai` - .well-known AI plugin manifest
 
 **Possible statuses:** `pass` / `info`
