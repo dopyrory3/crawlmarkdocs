@@ -6,6 +6,9 @@ export default defineConfig({
   site: 'https://docs.crawlmark.report',
   integrations: [
     starlight({
+      components: {
+        Head: './src/components/Head.astro',
+      },
       title: 'Crawlmark Docs',
       description: 'Authoritative reference for Crawlmark scanning criteria, scoring, and checks.',
       favicon: '/favicon.svg',

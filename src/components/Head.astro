@@ -1,0 +1,67 @@
+---
+// Extends Starlight's default Head with OG tags Starlight omits (url, site_name, image)
+// plus Twitter card meta and per-page JSON-LD structured data.
+//
+// og:image — drop a /public/og.png (1200×630) to activate; currently points to the
+// expected path so crawlers can find it once the asset exists.
+import Default from '@astrojs/starlight/components/Head.astro';
+import type { Props } from '@astrojs/starlight/props';
+
+const { entry, siteTitle } = Astro.props as Props;
+
+const siteUrl = (Astro.site?.toString() ?? 'https://docs.crawlmark.report').replace(/\/$/, '');
+const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = `${siteUrl}/og.png`;
+
+const title = entry.data.title;
+const description =
+  entry.data.description ??
+  'Authoritative reference for Crawlmark scanning criteria, scoring, and checks.';
+
+const isHome = Astro.url.pathname === '/';
+
+const jsonLd = isHome
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: siteTitle,
+      url: `${siteUrl}/`,
+      description,
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${siteUrl}/ask?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    }
+  : {
+      '@context': 'https://schema.org',
+      '@type': 'TechArticle',
+      headline: title,
+      description,
+      url: pageUrl,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: siteTitle,
+        url: `${siteUrl}/`,
+      },
+    };
+---
+
+<Default {...Astro.props} />
+
+{/* OG tags Starlight doesn't emit */}
+<meta property="og:url" content={pageUrl} />
+<meta property="og:site_name" content={siteTitle} />
+<meta property="og:image" content={ogImage} />
+
+{/* Twitter / X card */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{/* JSON-LD */}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
