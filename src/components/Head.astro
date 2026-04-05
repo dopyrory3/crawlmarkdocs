@@ -20,7 +20,7 @@ const description =
   'Authoritative reference for Crawlmark scanning criteria, scoring, and checks.';
 
 const isHome = Astro.url.pathname === '/';
-const is404 = !entry;
+const is404 = Astro.url.pathname === '/404';
 
 const jsonLd = isHome
   ? {
