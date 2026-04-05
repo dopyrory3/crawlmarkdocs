@@ -13,12 +13,14 @@ const siteUrl = (Astro.site?.toString() ?? 'https://docs.crawlmark.report').repl
 const pageUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImage = `${siteUrl}/og.png`;
 
-const title = entry.data.title;
+// entry is undefined on the built-in 404 page
+const title = entry?.data.title ?? siteTitle;
 const description =
-  entry.data.description ??
+  entry?.data.description ??
   'Authoritative reference for Crawlmark scanning criteria, scoring, and checks.';
 
 const isHome = Astro.url.pathname === '/';
+const is404 = !entry;
 
 const jsonLd = isHome
   ? {
@@ -63,5 +65,5 @@ const jsonLd = isHome
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 
-{/* JSON-LD */}
-<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+{/* JSON-LD — omit on 404 */}
+{!is404 && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
