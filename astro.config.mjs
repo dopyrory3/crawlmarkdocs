@@ -45,6 +45,8 @@ export default defineConfig({
         },
       ],
     }),
-    sitemap(),
+    sitemap({
+      lastmod: new Date(),
+    }),
   ],
 });
