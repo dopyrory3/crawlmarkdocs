@@ -68,19 +68,84 @@ Fetches `{domain}/llms.txt` with `Accept: text/plain`. Fails if the file is miss
 
 ---
 
-## `llms-txt-format` - llms.txt valid format
+llms.txt is validated against the [official spec](https://llmstxt.org/). The table below maps each criterion to its check:
+
+| Criterion | Spec level | Check ID |
+|---|---|---|
+| H1 title present | Required | `llms-txt-format` |
+| Blockquote summary | Recommended | `llms-txt-blockquote` |
+| H2 sections present | Recommended | `llms-txt-sections` |
+| File is concise | Implied | `llms-txt-concise` |
+| Contains links | Expected | `llms-txt-links` |
+| Links have descriptive anchor text | Recommended | `llms-txt-link-quality` |
+
+---
+
+## `llms-txt-format` - llms.txt has H1 title
+
+**Possible statuses:** `pass` / `fail`
+
+Checks that the file begins with an H1 heading (`# Title`). This is the only element the spec marks as required. A missing H1 is a `fail` — there is no partial credit for omitting the one mandatory field.
+
+---
+
+## `llms-txt-blockquote` - llms.txt has summary blockquote
 
 **Possible statuses:** `pass` / `warn`
 
-Checks that the file contains at least one H1 heading (`# Title`), which the llms.txt spec requires as the document title.
+Checks for a blockquote (`> ...`) after the H1 title. The spec recommends a brief summary here containing key information about the site.
+
+---
+
+## `llms-txt-sections` - llms.txt has H2 sections
+
+**Possible statuses:** `pass` / `warn`
+
+Checks for H2 headings (`## Section Name`). The spec uses H2 sections to group related file lists (e.g. `## Docs`, `## API`, `## Optional`).
+
+---
+
+## `llms-txt-concise` - llms.txt is appropriately concise
+
+**Possible statuses:** `pass` / `warn` / `fail`
+
+The spec explicitly calls for "concise, clear language." A file containing thousands of product SKUs, every page URL, or other bulk content defeats the purpose — it cannot be efficiently consumed by an LLM and signals a misunderstanding of the format.
+
+| Condition | Status |
+|---|---|
+| ≤ 500 lines and ≤ 50 KB | `pass` |
+| 500–2,000 lines or 50–500 KB | `warn` |
+| > 2,000 lines or > 500 KB | `fail` |
 
 ---
 
 ## `llms-txt-links` - llms.txt contains content links
 
-**Possible statuses:** `pass` / `warn`
+**Possible statuses:** `pass` / `warn` / `fail`
 
-Counts markdown-style links (`[text](url)`) in the file. A file with no links documents nothing useful for AI agents to follow.
+Counts markdown links (`[text](url)`) in the file. An excessively high link count is treated as a quality failure — the file should curate key resources, not enumerate entire sitemaps or product catalogues.
+
+| Links | Status |
+|---|---|
+| 1–500 | `pass` |
+| 501–2,000 | `warn` |
+| > 2,000 | `fail` |
+| 0 | `warn` |
+
+---
+
+## `llms-txt-link-quality` - Links have descriptive anchor text
+
+**Possible statuses:** `pass` / `warn` / `fail` / `info`
+
+Checks that link anchor text is meaningful. The primary pattern caught is bare URL anchor text — links where the anchor is the raw URL itself (e.g. `[https://example.com/page](https://example.com/page)`). These provide no context to an LLM.
+
+| Poor anchor ratio | Status |
+|---|---|
+| 0% | `pass` |
+| 1–20% | `warn` |
+| > 20% | `fail` |
+| No links | `info` |
 
 ---
 
